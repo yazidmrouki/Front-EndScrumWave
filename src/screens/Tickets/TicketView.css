@@ -1,0 +1,16 @@
+.dataTable .rdt_Table .rdt_TableCell {
+    white-space: nowrap;
+  }
+  
+  .icofont-check-circled, .icofont-close-circled {
+    font-size: 18px;
+  }
+  
+  .icofont-check-circled {
+    color: #28a745;
+  }
+  
+  .icofont-close-circled {
+    color: #dc3545;
+  }
+  

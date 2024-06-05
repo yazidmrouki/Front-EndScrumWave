@@ -1,0 +1,157 @@
+.event-card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+    margin-bottom: 20px;
+}
+
+.event-card:hover {
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+}
+
+.event-card .card-body {
+    padding: 20px;
+}
+
+.event-card .card-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.event-card .card-text {
+    font-size: 1rem;
+}
+
+.event-card .action-buttons {
+    margin-top: 10px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.event-card .action-buttons button {
+    margin-left: 10px;
+}
+.event-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.event-card-background {
+    object-fit: cover; /* Assure que l'image couvre entièrement le conteneur */
+    height: 200px; /* Réglez la hauteur souhaitée */
+}
+
+.event-detail {
+    display: flex;
+    margin-bottom: 8px;
+}
+
+.detail-label {
+    font-weight: bold;
+    margin-right: 8px;
+}
+
+.detail-value {
+    color: #333;
+}
+/* Modifier le style du composant Card */
+.my-custom-card {
+    border: 2px solid #333; /* Bordure foncée */
+    border-radius: 10px;
+    padding: 20px;
+}
+
+/* Modifier le style du titre de la carte */
+.card-title {
+    color: #3498db; /* Couleur du titre */
+    font-size: 24px;
+    text-align: center;
+    font-weight: bold; /* Texte en gras */
+}
+
+/* Modifier le style des détails de l'événement */
+.event-details {
+    margin-bottom: 20px;
+}
+
+/* Modifier le style des étiquettes des détails */
+.detail-label {
+    font-weight: bold;
+}
+
+/* Modifier le style des valeurs des détails */
+
+/* Ajouter une bordure pour limiter la description */
+.event-detail {
+    border-bottom: 1px solid #333; /* Bordure entre les détails */
+}
+
+/* Style spécifique pour la description */
+.detail-value.dark {
+    color: #333; /* Couleur du texte foncé */
+    font-weight: bold; /* Texte en gras */
+}
+.detail-label {
+    color: orange; /* Couleur orange */
+    /* Autres styles au besoin */
+}
+
+.no-projects-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full viewport height */
+    background-color: #f8f9fa; /* Light grey background */
+}
+
+.no-projects-card {
+    width: 50%; /* Adjust the width as needed */
+    max-width: 600px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow for a card effect */
+    border-radius: 8px; /* Rounded corners */
+    background-color: #ffffff; /* White background */
+}
+
+.no-projects-card .card-body {
+    padding: 2rem; /* More padding for a better look */
+    text-align: center;
+}
+
+.no-projects-card .card-title {
+    font-size: 1.5rem; /* Larger title */
+    margin-bottom: 1rem;
+    color: #333; /* Dark text color */
+}
+
+.no-projects-card .card-text {
+    font-size: 1rem; /* Normal text size */
+    color: #666; /* Grey text color */
+}
+
+
+.card-body {
+    text-align: center;
+    padding: 40px; /* Augmentation de l'espacement intérieur */
+}
+
+.card-title {
+    font-size: 24px; /* Augmentation de la taille de la police pour le titre */
+}
+
+.card-text {
+    font-size: 18px; /* Augmentation de la taille de la police pour le texte */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+

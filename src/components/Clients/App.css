@@ -1,0 +1,105 @@
+/* App.css */
+
+/* Styles pour la carte */
+.teacher-card {
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .teacher-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Styles pour l'image de profil et le bouton de caméra */
+  .profile-teacher .avatar {
+    width: 100px;
+    height: 100px;
+    transition: transform 0.3s ease;
+  }
+  
+  .profile-teacher .avatar:hover {
+    transform: scale(1.05);
+  }
+  
+  .camera-btn {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+  
+    color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+  }
+  
+  .camera-btn:hover {
+    background-color: #391486;
+  }
+  
+  .camera-icon {
+    font-size: 16px;
+  }
+  
+  /* Styles pour le bouton Modifier le profil */
+  .edit-btn {
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .edit-btn:hover {
+    background-color: #3f00b3;
+    color: white;
+  }
+  
+  /* Styles pour les informations de profil */
+  .card-title {
+    font-size: 1.5rem;
+  }
+  
+  .card-subtitle {
+    font-size: 1rem;
+  }
+  
+  .card-text {
+    font-size: 1rem;
+  }
+  
+  .d-flex.align-items-center .fs-3,
+  .d-flex.align-items-center .fs-4 {
+    transition: transform 0.3s ease;
+  }
+  
+  .d-flex.align-items-center:hover .fs-3,
+  .d-flex.align-items-center:hover .fs-4 {
+    transform: scale(1.1);
+  }
+  
+  .text-primary {
+    color: #007bff !important;
+  }
+  .info-item {
+    background-color: #f1f3f5;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+  }
+  
+  .info-item:hover {
+    transform: scale(1.05);
+    background-color: #e9ecef;
+  }
+  
+  .info-item i {
+    color: #007bff;
+  }
+  
+  .text-primary {
+    color: #007bff !important;
+  }

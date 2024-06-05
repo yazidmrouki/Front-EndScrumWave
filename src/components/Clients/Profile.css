@@ -1,0 +1,115 @@
+.avatar {
+  border-color: #808080; /* Couleur de la bordure gris */
+  width: 50px; /* Taille de l'image */
+  height: 50px; /* Taille de l'image */
+  object-fit: cover; /* Pour conserver les proportions de l'image */
+}
+
+.Camera{
+  color: #cccccc;
+  width:31px;
+  height:30px;
+position:absolute;
+top: 70%;
+left: 65%;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); 
+background-color: #ecf0f1;
+} 
+.camera-icon {
+  color: rgb(0, 0, 0);
+ 
+}
+
+
+/*/////*/
+
+.client-name {
+  font-size: 16px; /* Taille de police légèrement plus grande */
+  color: #2c3e50; /* Couleur du texte subtile et élégante */
+  font-weight: 600; /* Poids de la police pour mettre en évidence */
+  margin-top: 8px; /* Marge en haut */
+  display: flex; /* Utiliser flexbox pour aligner l'icône et le texte */
+  align-items: center; /* Centrer verticalement l'icône et le texte */
+  background-color: #ecf0f1; /* Couleur de fond légère pour un contraste */
+  padding: 5px 10px; /* Espacement interne pour plus de confort */
+  border-radius: 5px; /* Coins arrondis */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Légère ombre pour profondeur */
+}
+
+.client-name i {
+  margin-right: 8px; /* Espace entre l'icône et le texte */
+  color: #2980b9; /* Couleur de l'icône */
+}
+
+.overlay button {
+  border: 2px solid #808080; /* Couleur de la bordure du bouton gris */
+}
+.vertical-line {
+  width: 1px;
+  height: 100%;
+  background-color: #ccc; /* Couleur de la ligne */
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%; /* Positionnement au centre */
+  transform: translateX(-50%);
+}
+.btn-delete {
+  position: absolute;
+  top: 10px; /* Ajuster la position verticale */
+  right: 10px; /* Ajuster la position horizontale */
+  z-index: 1000;
+  border: none;
+  background: none;
+  padding: 15px; /* Augmenter la taille du bouton */
+  cursor: pointer;
+  border-radius: 50%; /* Rendre le bouton rond */
+   /* Ajouter une ombre */
+  transition: background-color 0.3s ease; /* Ajouter une transition pour le survol */
+}
+
+.btn-delete i {
+  font-size: 1.5rem;
+}
+/* Custom modal styles */
+
+.custom-modal-body {
+  background-color: #f8f9fa; /* Couleur de fond du corps */
+  color: #333; /* Couleur du texte du corps */
+}
+
+.user-profile {
+  margin-bottom: 20px;
+}
+
+.user-details p {
+  margin-bottom: 10px;
+}
+
+.user-experiences h3 {
+  margin-bottom: 10px;
+}
+
+.user-experiences li {
+  margin-bottom: 20px;
+  border-bottom: 1px solid #ccc; /* Bordure entre les éléments de la liste */
+  padding-bottom: 15px;
+}
+
+.user-experiences li:last-child {
+  border-bottom: none; /* Supprimer la bordure sous le dernier élément */
+}
+.big-badge {
+  width: 25px;
+  height: 25px;
+  font-size: 1.5rem; /* Ajustez la taille du texte si nécessaire */
+  line-height: 100px; /* Centrez verticalement le texte */
+border-color:3px #808080;/* Ajoute une bordure blanche */
+}
+.custom-modal-body p {
+  font-size: 18px; /* Taille de police plus grande pour les paragraphes */
+}
+
+.user-experiences h3 {
+  font-size: 20px; /* Taille de police plus grande pour les titres */
+}

@@ -1,22 +1,31 @@
 import React from "react";
-
+import  './Credential.css';
 function ProjectCredentials (){
-    
+    const name = localStorage.getItem('name');
         return(
-            <div className="alert alert-primary p-3 mb-0 w-100">
-                <h6 className="fw-bold mb-1">Create Project Credentials</h6>
-                <p className="small mb-4">Create a Project credentials now and never miss</p>
-                <div className="my-3 ">
-                    <input type="text" className="form-control form-control-lg" placeholder="Enter Username" />
+            <div className="card bg-lightyellow">
+            <div className="card-body">
+                <div className="row align-items-center">
+                    <div className="col-12 col-md-5 col-lg-6 order-md-2">
+                        <div className="video-container text-center p-4">
+                            <video autoPlay muted loop className="img-fluid">
+                                <source src="https://cdn-icons-mp4.flaticon.com/512/15594/15594571.mp4" type="video/mp4" />
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                    </div>
+                    <div className="col-12 col-md-7 col-lg-6 order-md-1 px-4">
+                        <div className="text-center text-md-start">
+                            <h3 className="fw-bold">{name}</h3>
+                            <p className="line-height-custom">
+                                Welcome back, {name}. This dashboard is designed to make project tracking and management easier. Here, you can view your project details, monitor progress, and stay updated with real-time data. Let's get started on achieving your goals!
+                            </p>
+                        </div>
+                    </div>
                 </div>
-                <div className="my-3">
-                    <input type="password" className="form-control form-control-lg" placeholder="Enter Password" />
-                </div>
-                <div className="my-3">
-                    <input type="password" className="form-control form-control-lg" placeholder="Confirm Password" />
-                </div>
-                <button className="btn btn-primary mt-2">Create Credentials</button>
             </div>
+        </div>
+        
         )
     }
 

@@ -1,0 +1,65 @@
+.custom-nav-link.active {
+    background-color: #007bff; /* Couleur de fond de l'élément actif */
+    color: #fff; /* Couleur du texte de l'élément actif */
+}
+
+
+
+.no-projects-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    
+}
+
+.no-projects-card {
+    width: 60%; /* Augmentation de la largeur */
+    height: 100%; /* Augmentation de la hauteur */
+    background-color: #310000;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+    animation: fadeIn 1s ease-in-out; /* Animation de fondu en entrée */
+}
+
+.card-body {
+    text-align: center;
+    padding: 40px; /* Augmentation de l'espacement intérieur */
+}
+
+.card-title {
+    font-size: 24px; /* Augmentation de la taille de la police pour le titre */
+}
+
+.card-text {
+    font-size: 18px; /* Augmentation de la taille de la police pour le texte */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.position-relative {
+    position: relative;
+  }
+  
+  .dropdown-arrow {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 5px 5px 0 5px;
+    border-color: #ffffff transparent transparent transparent;
+    z-index: 1;
+  }
+  

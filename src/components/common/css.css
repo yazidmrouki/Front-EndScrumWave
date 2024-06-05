@@ -1,0 +1,95 @@
+/* Styles pour la carte */
+.card {
+    background-color: #ffffff; /* Couleur de fond */
+    border-radius: 10px; /* Bordure arrondie */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Ombre */
+  }
+  
+  .card-body {
+    padding: 20px; /* Espacement intérieur */
+  }
+  
+  /* Styles pour le conteneur de notifications */
+  .no-notifications {
+    text-align: center; /* Centrer le contenu horizontalement */
+  }
+  
+  /* Styles pour le message de notification */
+  .no-notifications-message {
+    font-size: 14px; /* Taille de police plus petite */
+    margin-bottom: 10px; /* Espacement en bas */
+  }
+  
+  /* Styles pour la vidéo de notification */
+  .no-notifications-video {
+    width: 100px; /* Largeur de la vidéo */
+    height: auto; /* Hauteur automatique */
+    display: block; /* Afficher en tant que bloc */
+    margin: 0 auto; /* Centrer horizontalement */
+  }
+  
+  .avatar {
+    width: 40px; /* Largeur de l'image de profil */
+    height: 40px; /* Hauteur de l'image de profil */
+    border-radius: 50%; /* Bordure arrondie */
+  }
+  
+  /* Styles pour la liste des éléments */
+  .list-group-item {
+    background-color: transparent; /* Couleur de fond transparente */
+    border: none; /* Supprimer la bordure */
+    padding: 10px 0; /* Espacement intérieur */
+  }
+  
+  .list-group-item:hover {
+    background-color: #f8f9fa; /* Couleur de fond au survol */
+  }
+  
+  .list-group-item-action {
+    color: #495057; /* Couleur du texte */
+  }
+  
+  /* Styles pour les icônes */
+  .icofont-tasks,
+  .icofont-ui-user-group,
+  .icofont-logout {
+    font-size: 1.2rem; /* Taille de l'icône */
+    margin-right: 15px; /* Espacement à droite */
+  }
+  
+  /* Styles pour le bouton "Signout" */
+  .list-group-item-action:last-child {
+    color: #dc3545; /* Couleur du texte */
+  }
+  
+  .list-group-item-action:last-child:hover {
+    background-color: transparent; /* Couleur de fond transparente */
+  }
+  
+  /* Styles pour le menu déroulant */
+  .dropdown-menu {
+    background-color: transparent; /* Fond transparent */
+    border: none;
+  
+  }
+  
+  /* Styles pour les éléments du menu déroulant */
+  .dropdown-menu .list-group-item {
+    background-color: #ffffff; /* Couleur de fond */
+    border: none; /* Supprimer la bordure */
+    padding: 10px 0; /* Espacement intérieur */
+  }
+  
+  .dropdown-menu .list-group-item:hover {
+    background-color: #f8f9fa; /* Couleur de fond au survol */
+  }
+  
+  /* Styles pour les liens du menu déroulant */
+  .dropdown-menu .list-group-item-action {
+    color: #ffffff; /* Couleur du texte */
+  }
+  
+  .dropdown-menu .list-group-item-action:hover {
+    background-color: transparent; /* Couleur de fond transparente */
+  }
+  

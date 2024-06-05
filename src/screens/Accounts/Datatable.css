@@ -1,0 +1,208 @@
+.myDataTable {
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.myDataTable .header {
+  background-color: #007bff;
+  color: #fff;
+  font-weight: bold;
+  font-size: 16px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  text-align: center;
+}
+
+.myDataTable .row {
+  transition: background-color 0.3s ease;
+}
+
+.myDataTable a {
+  color: #ff6600;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.myDataTable a:hover {
+  text-decoration: underline;
+}
+
+.myDataTable .row:hover {
+  background-color: #f0f0f0;
+}
+
+.myDataTable .btn-group .btn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.myDataTable .btn-group .btn-primary {
+  background-color: #28a745;
+  color: #fff;
+}
+
+.myDataTable .btn-group .btn-danger {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+.time-left-cell {
+  display: flex;
+  align-items: center;
+}
+
+.time-left-cell .time-value {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.meeting-warning {
+  color: red;
+  font-weight: bold;
+}
+
+.attention-modal {
+  background-color: #ffcccb;
+  border: 2px solid red;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.attention-modal .modal-header {
+  background-color: red;
+  color: white;
+}
+
+.attention-modal .modal-title {
+  font-weight: bold;
+}
+
+.attention-modal .modal-body {
+  padding: 20px;
+}
+
+.attention-modal .modal-footer {
+  display: flex;
+  justify-content: center;
+}
+
+.attention-message {
+  color: red;
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+}
+
+.page-header h1 {
+  font-size: 2rem;
+  color: #333;
+}
+
+.page-header .btn {
+  font-size: 1rem;
+  padding: 10px 20px;
+  border-radius: 50px;
+  transition: background-color 0.3s;
+}
+
+.page-header .btn-dark {
+  background-color: #333;
+  color: #fff;
+}
+
+.page-header .btn-dark:hover {
+  background-color: #555;
+}
+
+.modal .form-group {
+  margin-bottom: 1.5rem;
+}
+
+.modal .form-label {
+  font-weight: bold;
+  color: #333;
+}
+
+.modal .form-control {
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 1rem;
+}
+
+.red-blink {
+  animation: blink-red 1s linear infinite;
+}
+
+.meeting-link-cell {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  max-width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.meeting-link-cell a {
+  color: #c00000;
+  font-weight: bold;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.meeting-link-cell a:hover {
+  color: #ff6600;
+  text-decoration: underline;
+}
+
+.meeting-link-cell span {
+  color: #ff0000;
+  font-weight: bold;
+  animation: blink-red 1s linear infinite;
+}
+
+@keyframes blink-red {
+  0%, 100% { color: #ff0000; }
+  50% { color: transparent; }
+}
+
+.status-cell {
+  padding: 5px;
+  border-radius: 4px;
+}
+
+.status-complete {
+  background-color: #28a745;
+  color: white;
+}
+
+.status-pending {
+  background-color: #ffc107;
+  color: black;
+}
+
+.status-reported {
+  background-color: #dc3545;
+  color: white;
+}
+
+.action-btn {
+  margin-right: 5px;
+}
+@keyframes blink-red {
+  0%, 100% { stroke: red; }
+  50% { stroke: transparent; }
+}
+
+.progress-circle .progress-ring-circle {
+  transition: stroke 0.5s ease;
+}

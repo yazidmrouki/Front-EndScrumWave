@@ -1,109 +1,74 @@
-import React from "react";
-import Avatar2 from "../../assets/images/lg/avatar2.jpg";
-import Avatar3 from "../../assets/images/lg/avatar3.jpg";
-import Avatar7 from "../../assets/images/lg/avatar7.jpg";
-import Avatar8 from "../../assets/images/lg/avatar8.jpg";
-import Avatar9 from "../../assets/images/lg/avatar9.jpg";
-import Avatar12 from "../../assets/images/lg/avatar12.jpg";
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+import { Card } from "react-bootstrap";
 
 function UpcommingInterviews() {
+    const [dailyScrumData, setDailyScrumData] = useState([]);
+    const email = localStorage.getItem('email');
+
+    useEffect(() => {
+        const fetchDailyScrumData = async () => {
+            try {
+                const response = await axios.get(`http://localhost:3000/api/ProductOwners/daily-scrums/${email}`);
+                setDailyScrumData(response.data);
+            } catch (error) {
+                console.error('Erreur lors de la récupération des réunions quotidiennes :', error);
+            }
+        };
+
+        fetchDailyScrumData();
+    }, []);
 
     return (
-        <div className="card">
-            <div className="card-header py-3 d-flex justify-content-between bg-transparent border-bottom-0">
-                <h6 className="mb-0 fw-bold ">Upcomming Interviews</h6>
+        <div > 
+           <Card className="shadow-lg" style={{ height: '800px' }}>
+           <Card.Header className="bg-primary mb-3 text-white"> {/* Réduire la marge inférieure */}
+                <h5 className="mb-5 fw-bold">Daily Scrums</h5>
+            </Card.Header>
+                <Card.Body className="mem-list">
+                {Object.entries(dailyScrumData).map(([projectId, projectData]) => (
+            <div key={projectId}>
+                <Card className="mb-3">
+                    <Card.Header className="py-3 d-flex justify-content-between bg-transparent border-bottom-0">
+                        <div className="d-flex align-items-center">
+                            <img className="avatar lg rounded-circle img-thumbnail me-3" src={`http://localhost:3000/api/scrumMasters/get-profile-photo/${projectData.scrumMasterEmail}`} alt="profile" />
+                            <div>
+                                <h6 className="mb-0 fw-bold">{projectData.projectName}</h6>
+                                <span className="text-muted">Scrum Master: {projectData.scrumMasterEmail}</span>
+                            </div>
+                        </div>
+                    </Card.Header>
+                    <Card.Body>
+                        {projectData.dailyScrums.map((dailyScrum, index) => (
+                            <div key={index} className="flex-grow-1">
+                                <div className="py-2 d-flex align-items-center border-bottom flex-wrap">
+                                    <div className="d-flex align-items-center flex-fill">
+                                        <div className="d-flex flex-column ps-3">
+                                            <h6 className={`fw-bold mb-0 small-14 ${dailyScrum.status === 'Completed' ? 'text-success' : dailyScrum.status === 'Upcoming' ? 'text-warning' : 'text-danger'}`}>
+                                                {dailyScrum.status === 'Completed' ? 'Completed' : dailyScrum.status === 'Upcoming' ? 'Upcoming' : 'Cancelled'}
+                                            </h6>
+                                            <span className="text-muted">{dailyScrum.status === 'Completed' ? 'Completed' : dailyScrum.status === 'Upcoming' ? 'Upcoming' : 'Cancelled'}</span>
+                                        </div>
+                                    </div>
+                                    <div className="time-block text-truncate">
+                                        <i className="icofont-clock-time"></i> {formatDate(dailyScrum.dailyProgram)}
+                                    </div>
+                                </div>
+                            </div>
+                        ))}
+                    </Card.Body>
+                </Card>
             </div>
-            <div className="card-body">
-                <div className="flex-grow-1">
-                    <div className="py-2 d-flex align-items-center border-bottom flex-wrap">
-                        <div className="d-flex align-items-center flex-fill">
-                            <img className="avatar lg rounded-circle img-thumbnail" src={Avatar2} alt="profile" />
-                            <div className="d-flex flex-column ps-3">
-                                <h6 className="fw-bold mb-0 small-14">Natalie Gibson</h6>
-                                <span className="text-muted">Ui/UX Designer</span>
-                            </div>
-                        </div>
-                        <div className="time-block text-truncate">
-                            <i className="icofont-clock-time"></i> 1.30 - 1:30
-                        </div>
-                    </div>
-                    <div className="py-2 d-flex align-items-center border-bottom flex-wrap">
-                        <div className="d-flex align-items-center flex-fill">
-                            <img className="avatar lg rounded-circle img-thumbnail" src={Avatar9} alt="profile" />
-                            <div className="d-flex flex-column ps-3">
-                                <h6 className="fw-bold mb-0 small-14">Peter	Piperg</h6>
-                                <span className="text-muted">Web Design</span>
-                            </div>
-                        </div>
-                        <div className="time-block text-truncate">
-                            <i className="icofont-clock-time"></i> 9.00 - 1:30
-                        </div>
-                    </div>
-                    <div className="py-2 d-flex align-items-center border-bottom flex-wrap">
-                        <div className="d-flex align-items-center flex-fill">
-                            <img className="avatar lg rounded-circle img-thumbnail" src={Avatar12} alt="profile" />
-                            <div className="d-flex flex-column ps-3">
-                                <h6 className="fw-bold mb-0 small-14">Robert Young</h6>
-                                <span className="text-muted">PHP Developer</span>
-                            </div>
-                        </div>
-                        <div className="time-block text-truncate">
-                            <i className="icofont-clock-time"></i> 1.30 - 2:30
-                        </div>
-                    </div>
-                    <div className="py-2 d-flex align-items-center border-bottom flex-wrap">
-                        <div className="d-flex align-items-center flex-fill">
-                            <img className="avatar lg rounded-circle img-thumbnail" src={Avatar8} alt="profile" />
-                            <div className="d-flex flex-column ps-3">
-                                <h6 className="fw-bold mb-0 small-14">Victoria Vbell</h6>
-                                <span className="text-muted">IOS Developer</span>
-                            </div>
-                        </div>
-                        <div className="time-block text-truncate">
-                            <i className="icofont-clock-time"></i> 2.00 - 3:30
-                        </div>
-                    </div>
-                    <div className="py-2 d-flex align-items-center border-bottom flex-wrap">
-                        <div className="d-flex align-items-center flex-fill">
-                            <img className="avatar lg rounded-circle img-thumbnail" src={Avatar7} alt="profile" />
-                            <div className="d-flex flex-column ps-3">
-                                <h6 className="fw-bold mb-0 small-14">Mary Butler</h6>
-                                <span className="text-muted">Writer</span>
-                            </div>
-                        </div>
-                        <div className="time-block text-truncate">
-                            <i className="icofont-clock-time"></i> 4.00 - 4:30
-                        </div>
-                    </div>
-                    <div className="py-2 d-flex align-items-center border-bottom flex-wrap">
-                        <div className="d-flex align-items-center flex-fill">
-                            <img className="avatar lg rounded-circle img-thumbnail" src={Avatar3} alt="profile" />
-                            <div className="d-flex flex-column ps-3">
-                                <h6 className="fw-bold mb-0 small-14">Youn Bel</h6>
-                                <span className="text-muted">Unity 3d</span>
-                            </div>
-                        </div>
-                        <div className="time-block text-truncate">
-                            <i className="icofont-clock-time"></i> 7.00 - 8.00
-                        </div>
-                    </div>
-                    <div className="py-2 d-flex align-items-center  flex-wrap">
-                        <div className="d-flex align-items-center flex-fill">
-                            <img className="avatar lg rounded-circle img-thumbnail" src={Avatar2} alt="profile" />
-                            <div className="d-flex flex-column ps-3">
-                                <h6 className="fw-bold mb-0 small-14">Gibson Butler</h6>
-                                <span className="text-muted">Networking</span>
-                            </div>
-                        </div>
-                        <div className="time-block text-truncate">
-                            <i className="icofont-clock-time"></i> 8.00 - 9.00
-                        </div>
-                    </div>
-                </div>
-            </div>
+        ))}
+                </Card.Body>
+            </Card>
         </div>
-    )
+    );
 }
 
+function formatDate(dateString) {
+    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', hour12: true };
+    return new Date(dateString).toLocaleDateString('en-US', options);
+}
 
 export default UpcommingInterviews;

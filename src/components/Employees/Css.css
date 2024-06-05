@@ -1,0 +1,120 @@
+.card {
+    border: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+    background-color: #fff; /* Changement de couleur de fond */
+}
+
+.card:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.card-header {
+    border-bottom: none;
+    background-color: #007bff; /* Changement de couleur de fond */
+}
+
+.card-header h6 {
+    margin-bottom: 0; /* Suppression de la marge inférieure */
+    font-family: 'Arial', sans-serif; /* Changement de la police */
+}
+
+.card-body {
+    padding: 1.5rem;
+}
+
+.card-body ul {
+    padding-left: 0;
+}
+
+.card-body ul li {
+    list-style: none;
+}
+
+.card-body ul li .col-sm-6 {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+.card-body ul li .fw-bold {
+    color: #6c757d;
+    font-weight: bold; /* Changement de la police */
+}
+
+.card-body ul li .text-muted {
+    color: #495057;
+    font-family: 'Arial', sans-serif; /* Changement de la police */
+}
+
+.btn {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.btn:hover {
+    color: #fff;
+}
+
+.icofont-edit {
+    font-size: 1rem;
+}
+
+hr {
+    border-top: 1px solid #dee2e6; /* Changement de couleur de la ligne */
+    margin-top: 1rem; /* Ajout de marge en haut */
+    margin-bottom: 1rem; /* Ajout de marge en bas */
+}
+.btn.btn-outline-primary {
+    color: #007bff; /* Changement de couleur du texte */
+    background-color: #fff; /* Changement de couleur de fond */
+    border-color: #ffffff; /* Changement de couleur de la bordure */
+}
+
+.btn.btn-outline-primary:hover {
+    color: #fff; /* Changement de couleur du texte au survol */
+    background-color: #007bff; /* Changement de couleur de fond au survol */
+    border-color: #ffffff; /* Changement de couleur de la bordure au survol */
+}
+
+.custom-card {
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.custom-card-header {
+  background-color: #007bff;
+  color: white;
+}
+
+.custom-btn {
+  border: 1px solid white;
+  color: white;
+}
+
+.custom-btn:hover {
+  background-color: white;
+  color: #007bff;
+}
+
+.custom-card-body {
+  padding: 20px;
+}
+
+.custom-card-body .row {
+  margin-bottom: 15px;
+}
+
+.custom-card-body .row:last-child {
+  margin-bottom: 0;
+}
+
+.custom-card-body .col-sm-6:first-child {
+  font-weight: bold;
+}
+
+.custom-card-body .col-sm-6:last-child {
+  color: #6c757d;
+}

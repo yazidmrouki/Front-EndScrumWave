@@ -1,0 +1,13 @@
+.custom-select {
+    width: 150px; /* Ajustez la largeur selon vos besoins */
+    height: 30px; /* Ajustez la hauteur selon vos besoins */
+    font-size: 14px; /* Ajustez la taille de la police selon vos besoins */
+    border-radius: 5px; /* Ajustez le rayon de bordure selon vos besoins */
+  }
+  
+  .custom-select:focus {
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  }
+  

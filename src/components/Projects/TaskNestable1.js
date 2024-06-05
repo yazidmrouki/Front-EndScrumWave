@@ -1,11 +1,27 @@
-import React, { useState } from "react";
+
+import React, { useState, useEffect } from "react";
 import NestableCard from "./NestableCard";
 import { Draggable, Droppable } from "react-drag-and-drop";
 
-function TaskNestable1 (props){
-    const [dropable,setDropable] = useState([...props.InProgressTaskData]);
-    const [gragable,setGragable] = useState([...props.needReviewData]);
-    const [Copmplete,setCopmplete] = useState([...props.CompletedData]);
+
+    function TaskNestable1(props) {
+          
+        const role=localStorage.getItem('role');
+        const [dropable, setDropable] = useState([]);
+        const [gragable, setGragable] = useState([]);
+        const [Copmplete, setCopmplete] = useState([]);
+    
+        useEffect(() => {
+            setDropable([...props.InProgressTaskData]);
+        }, [props.InProgressTaskData]);
+    
+        useEffect(() => {
+            setGragable([...props.needReviewData]);
+        }, [props.needReviewData]);
+    
+        useEffect(() => {
+            setCopmplete([...props.CompletedData]);
+        }, [props.CompletedData]);
 
    const onDropT = (data) => {
     var dropabl = dropable;
@@ -96,7 +112,7 @@ function TaskNestable1 (props){
         return(
             <div className="row taskboard g-3 py-xxl-4">
                 <div className="col-xxl-4 col-xl-4 col-lg-4 col-md-12 mt-xxl-4 mt-xl-4 mt-lg-4 mt-md-4 mt-sm-4 mt-4">
-                    <h6 className="fw-bold py-3 mb-0">In Progress</h6>
+                    <h6 className="fw-bold py-3 mb-0">To Do</h6>
                     <Droppable
                         key={"1"}
                         onDragExit={data => {}}
@@ -111,7 +127,7 @@ function TaskNestable1 (props){
                                         data={data.Data}
                                         key={"gragglkasej" + i}
                                     >
-                                        <NestableCard data={data}/>
+                                        <NestableCard  role={role} data={data}/>
                                     </Draggable>
                             })
                         }
@@ -121,7 +137,7 @@ function TaskNestable1 (props){
                     </Droppable>    
                 </div>
                 <div className="col-xxl-4 col-xl-4 col-lg-4 col-md-12 mt-xxl-4 mt-xl-4 mt-lg-4 mt-md-4 mt-sm-4 mt-4">
-                    <h6 className="fw-bold py-3 mb-0">Needs Review</h6>
+                    <h6 className="fw-bold py-3 mb-0">In Progress</h6>
                         <Droppable
                             key={"1"}
                             onDragExit={data => {}}
@@ -136,7 +152,7 @@ function TaskNestable1 (props){
                                             data={data.Data}
                                             key={"gragglkasej" + i}
                                         >
-                                            <NestableCard data={data}/>
+                                            <NestableCard  role={role} data={data}/>
                                         </Draggable>
                                 })
                             }
@@ -161,7 +177,7 @@ function TaskNestable1 (props){
                                                 data={data.Data}
                                                 key={"gragglkasej" + i}
                                             >
-                                                <NestableCard data={data}/>
+                                                <NestableCard role={role} data={data}/>
                                             </Draggable>
                                     })
                                 }

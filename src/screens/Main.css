@@ -1,0 +1,61 @@
+.join-meeting-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: linear-gradient(90deg, rgba(98, 100, 167, 0.9), rgba(80, 85, 166, 0.9));
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+    transition: background 0.3s, transform 0.2s;
+    z-index: 1000;
+    width: 200px; /* Définissez la largeur du bouton */
+    height: 60px; /* Définissez la hauteur du bouton */
+}
+  
+.join-meeting-btn:hover {
+    background: linear-gradient(90deg, rgba(80, 85, 166, 0.9), rgba(98, 100, 167, 0.9));
+    transform: translateY(-2px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+.circle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: linear-gradient(90deg, rgba(98, 100, 167, 0.9), rgba(80, 85, 166, 0.9));
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+    transition: background 0.3s, transform 0.2s;
+    z-index: 1000;
+    width: 100px; /* Même taille pour le cercle */
+    height: 100px; /* Même taille pour le cercle */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .circle:hover {
+    background: linear-gradient(90deg, rgba(80, 85, 166, 0.9), rgba(98, 100, 167, 0.9));
+    transform: translateY(-2px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+  }
+  @keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+  
+  .blinking {
+    animation: blink 1s infinite;
+  }
+  

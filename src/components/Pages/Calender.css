@@ -1,0 +1,29 @@
+.meeting-point {
+    position: relative;
+  }
+  
+  .meeting-point-dot {
+    width: 10px;
+    height: 10px;
+    background-color: blue;
+    border-radius: 50%;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    z-index: 1; /* Assure que le point est affiché au-dessus des événements */
+  }
+  
+  .meeting-point-title {
+    font-size: 12px;
+    color: blue;
+    position: absolute;
+    top: 0;
+    left: 16px;
+    z-index: 1; /* Assure que le titre est affiché au-dessus des événements */
+  }
+  .daily-scrum-event {
+    white-space: nowrap; /* Empêche le texte de passer à la ligne */
+    overflow: hidden; /* Cache le texte qui dépasse */
+    text-overflow: ellipsis; /* Affiche les points de suspension (...) pour indiquer que le texte est tronqué */
+  }
+  

@@ -1648,24 +1648,6 @@ export const simpleChartTileData =[
     }
 ]
 
-export const TodayTimeUtilisationData={
-    options:{
-        chart: {
-            height: 250,
-            type: 'radialBar',
-        },
-        colors: ['var(--chart-color1)'],
-        plotOptions: {
-            radialBar: {
-                hollow: {
-                    size: '70%',
-                }
-            },
-        },
-        series: [70],
-        labels: ['Working'],
-    }
-}
 
 export const circleChart =[
     {

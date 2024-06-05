@@ -3,7 +3,7 @@ import CurrentClientProject from "../../components/Clients/CurrentClientProject"
 import OurClients from "../../components/Clients/OurClients";
 import PageHeader from "../../components/common/PageHeader";
 import BrandInfoSmallcard from "../../components/Dashboard/BrandInfoSmallcard";
-import DylanHunter from "../../components/Dashboard/DylanHunter";
+
 import Employeesavaibility from "../../components/Dashboard/Employeesavaibility";
 import ProjectCredentials from "../../components/Dashboard/ProjectCredentials";
 import TaskCard from "../../components/Dashboard/TaskCard";
@@ -101,9 +101,7 @@ function Widgets() {
                 </div>
             </div>
             <div className="row g-3 mb-3 row-deck">
-                <div className="col-md-12 col-lg-8 col-xl-7 col-xxl-7">
-                    <DylanHunter />
-                </div>
+             
                 <div className="col-md-12 col-lg-4 col-xl-5 col-xxl-5">
                     <ProjectCredentials />
                 </div>

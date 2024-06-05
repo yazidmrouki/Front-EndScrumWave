@@ -32,7 +32,7 @@
             ]
         },
         {
-            "name": "Projects",
+            "name": "Projects Details",
             "routerLink": [""],
             "identifier": "Projects",
             "iconClass": "icofont-briefcase",
@@ -51,9 +51,19 @@
                     "children": []
                 },
                 {
-                    "name": "Tasks",
+                    "name": "View Projects",
                     "routerLink": ["tasks"],
                     "identifier": "Tasks",
+                    "iconClass": "",
+                    "breadcrumbMessage": "",
+                    "isCategory": false,
+                    "isApp": false,
+                    "children": []
+                },
+                {
+                    "name": "Projects Management",
+                    "routerLink": ["ProjectManagement"],
+                    "identifier": "ProjectManagement",
                     "iconClass": "",
                     "breadcrumbMessage": "",
                     "isCategory": false,
@@ -147,7 +157,7 @@
             ]
         },
         {
-            "name": "Employees",
+            "name": "Employees Info",
             "routerLink": [""],
             "identifier": "Employees",
             "iconClass": "icofont-users-alt-5",
@@ -156,7 +166,7 @@
             "isApp": true,
             "children": [
                 {
-                    "name": "Members",
+                    "name": "All Members",
                     "routerLink": ["members"],
                     "identifier": "Members",
                     "iconClass": "",
@@ -166,7 +176,7 @@
                     "children": []
                 },
                 {
-                    "name": "Members Profile",
+                    "name": "  Profile",
                     "routerLink": ["members-profile"],
                     "identifier": "Members Profile",
                     "iconClass": "",
@@ -176,7 +186,18 @@
                     "children": []
                 },
                 {
-                    "name": "Holidays",
+                    "name": "Our Team",
+                    "routerLink": ["Myteam"],
+                    "identifier": "Team",
+                    "iconClass": "",
+                    "breadcrumbMessage": "",
+                    "isCategory": false,
+                    "isApp": false,
+                    "children": []
+                },
+                
+                {
+                    "name": "Events ",
                     "routerLink": ["holidays"],
                     "identifier": "Holidays",
                     "iconClass": "",
@@ -228,10 +249,10 @@
             ]
         },
         {
-            "name": "Accounts",
+            "name": "Assemble",
             "routerLink": [""],
             "identifier": "Accounts",
-            "iconClass": "icofont-ui-calculator",
+            "iconClass": "icofont-meeting-add",
             "breadcrumbMessage": "",
             "isCategory": false,
             "isApp": true,
@@ -246,18 +267,9 @@
                     "isApp": false,
                     "children": []
                 },
+               
                 {
-                    "name": "Payments",
-                    "routerLink": ["payments"],
-                    "identifier": "Payments",
-                    "iconClass": "",
-                    "breadcrumbMessage": "",
-                    "isCategory": false,
-                    "isApp": false,
-                    "children": []
-                },
-                {
-                    "name": "Expenses",
+                    "name": "DailyScrum",
                     "routerLink": ["expenses"],
                     "identifier": "Expenses",
                     "iconClass": "",
@@ -269,18 +281,18 @@
             ]
         },
         {
-            "name": "Payroll",
+            "name": "Stats Payment",
             "routerLink": [""],
             "identifier": "Payroll",
-            "iconClass": "icofont-users-alt-5",
+            "iconClass": "icofont-money",
             "breadcrumbMessage": "",
             "isCategory": false,
             "isApp": true,
             "children": [
                 {
-                    "name": "Employee Salary",
-                    "routerLink": ["employee-salary"],
-                    "identifier": "Employee Salary",
+                    "name": "Payments",
+                    "routerLink": ["payments"],
+                    "identifier": "Payments",
                     "iconClass": "",
                     "breadcrumbMessage": "",
                     "isCategory": false,
@@ -290,7 +302,7 @@
             ]
         },
         {
-            "name": "App",
+            "name": "Services",
             "routerLink": [""],
             "identifier": "App",
             "iconClass": "icofont-contrast",
@@ -299,7 +311,7 @@
             "isApp": true,
             "children": [
                 {
-                    "name": "Calander",
+                    "name": "Calander Team ",
                     "routerLink": ["calander"],
                     "identifier": "Calander",
                     "iconClass": "",

@@ -1,10 +1,14 @@
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
 import { Modal } from 'react-bootstrap';
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 function ExperienceCard() {
     const [experiences, setExperiences] = useState([]);
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const email = localStorage.getItem('email');
+    const role = localStorage.getItem('role');
+
     const [formData, setFormData] = useState({
         title: '',
         company: '',
@@ -15,9 +19,7 @@ function ExperienceCard() {
 
     useEffect(() => {
         // Récupérer l'email et le rôle du localStorage
-        const email = localStorage.getItem('email');
-        const role = localStorage.getItem('role');
-
+       
         // Vérifier si l'email est disponible
         if (email && role) {
             // Effectuer une requête pour récupérer les expériences du développeur
@@ -49,6 +51,13 @@ function ExperienceCard() {
 
     const handleAddExperienceSubmit = (e) => {
         e.preventDefault();
+    
+        // Check if any field is empty
+        if (!formData.title || !formData.company || !formData.startDate || !formData.endDate || !formData.description) {
+            toast.error("Veuillez remplir tous les champs.");
+            return; // Exit the function early if any field is empty
+        }
+    
         const email = localStorage.getItem('email');
         const role = localStorage.getItem('role');
         axios.post(`http://localhost:3000/api/${role}/add-experience`, { email, ...formData })
@@ -61,15 +70,21 @@ function ExperienceCard() {
                 console.error('Error adding new experience:', error);
             });
     };
+    
 
     return (
-        <div className="card">
-            <div className="card-header py-3">
-                <div className="d-flex justify-content-between align-items-center">
-                    <h6 className="mb-0 fw-bold">Experience</h6>
-                    <button className="btn btn-outline-primary" onClick={handleAddExperience}>Ajouter</button>
+
+        <div className="card mb-4 custom-card">
+             <ToastContainer />
+             <div className="card-header py-3 d-flex justify-content-between align-items-center bg-primary text-white rounded-top">
+                
+                    <h6 className="mb-0 fw-bold ">Experience</h6>
+                 
+                    <button type="button" className="btn btn-outline-primary" onClick={handleAddExperience}>
+                <i className="icofont-edit fs-6"> Ajouter Experience </i>
+            </button>
                 </div>
-            </div>
+           
             <div className="card-body">
                 {experiences.map((experience, index) => (
                     <div key={index} className={`timeline-item border-bottom ms-2 ${getClassName(index)}`}>

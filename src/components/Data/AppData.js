@@ -903,31 +903,8 @@ export const employeeInformationDetails = [
             }
         ]
     },
-    {
-        title:"Bank Informations",
-        information:[
-            {
-                title:"Bank Name",
-                value:"Kotak"
-            },
-            {
-                title:"Account No.",
-                value:"5436874596325486"
-            },
-            {
-                title:"IFSC Code",
-                value:"Kotak000021"
-            },
-            {
-                title:"Pan No",
-                value:"ACQPF6584L"
-            },
-            {
-                title:"UPI Id",
-                value:"454812kotak@upi"
-            }
-        ]
-    }
+    
+    
 ]
 
 export const HolidaysData={

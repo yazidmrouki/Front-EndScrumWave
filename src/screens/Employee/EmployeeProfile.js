@@ -1,120 +1,154 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import axios from 'axios'; 
 import ClientProfileCard from "../../components/Clients/ClientProfileCard";
 import PageHeader from "../../components/common/PageHeader";
 import CurrentClientProject from "../../components/Clients/CurrentClientProject";
-import { clentProfileData, employeeInformationDetails } from "../../components/Data/AppData";
 import PersonalInformations from "../../components/Employees/PersonalInformations";
-import CurrentTask from "../../components/Employees/CurrentTask";
 import ExperienceCard from "../../components/Employees/ExperienceCard";
-import { Modal } from "react-bootstrap";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-function EmployeeProfile() {
 
-    const [ismodal, setIsmodal] = useState(false);
-    const [modalData, setModalData] = useState("");
+import { FaRegFrown } from 'react-icons/fa';
+
+import DataTable from "react-data-table-component";
+import  './App.css';
+
+function EmployeeProfile() {
+    const role = localStorage.getItem('role');
+    const email = localStorage.getItem('email');
+    const AssignedTeam = localStorage.getItem("Assignedteam");
+    const [projects, setProjects] = useState([]);
+
+
+    useEffect(() => {
+        const fetchProjects = async () => {
+           
+
+            try {
+                let response;
+                if (role === 'ProductOwners') {
+                    response = await axios.get(`http://localhost:3000/api/ProductOwners/get-Projects/${email}`);
+                } else if (role === 'Devellopeurs' || role === 'scrumMasters') {
+                    response = await axios.get(`http://localhost:3000/api/${role}/get-ProjectsAssigne/${AssignedTeam}`);
+                }
+
+                const fetchedProjects = response.data || [];
+                setProjects(fetchedProjects);
+              
+            } catch (error) {
+             
+            }
+        };
+
+        fetchProjects();
+    }, [email, role, AssignedTeam]);
+
+
+
+    const getProjectStatus = (startDate, endDate) => {
+        const today = new Date();
+        const start = new Date(startDate);
+        const end = new Date(endDate);
+
+        if (today < start) return "To Do";
+        if (today >= start && today <= end) return "In Progress";
+        if (today > end) return "Completed";
+    };
+
+    const columns = [
+        {
+            name: "NO",
+            selector: (row, index) => index + 1,
+            sortable: true,
+        },
+        {
+            name: "PROJECT",
+            selector: row => row.projectName,
+            sortable: true,
+        },
+        {
+            name: "START DATE",
+            selector: row => new Date(row.projectStartDate).toLocaleDateString(),
+            sortable: true,
+        },
+        {
+            name: "END DATE",
+            selector: row => new Date(row.projectEndDate).toLocaleDateString(),
+            sortable: true,
+        },
+        {
+            name: "BUDGET",
+            selector: row => row.budget,
+            sortable: true,
+        },
+        {
+            name: "STATUS",
+            selector: row => getProjectStatus(row.projectStartDate, row.projectEndDate),
+            sortable: true,
+            cell: row => {
+                const status = getProjectStatus(row.projectStartDate, row.projectEndDate);
+                const statusClass = status === "In Progress" ? "bg-warning" : status === "Completed" ? "bg-success" : "bg-secondary";
+                return <span className={`badge ${statusClass}`}>{status}</span>;
+            }
+        }
+    ];
 
     return (
         <div className="container-xxl">
-            <PageHeader headerTitle="Employee Profile" />
-            <div className="row g-3">
-                <div className="col-xl-8 col-lg-12 col-md-12">
-                    <ClientProfileCard designation="Web Developer" details="Employee Id : 00001" />
-                    <ToastContainer />
-                    <h6 className="fw-bold  py-3 mb-3">Current Work Project</h6>
-                    <div className="teachercourse-list mb-3">
-                        <div className="row g-3 gy-5 pt-3 row-deck">
-                            {
-                                clentProfileData.map((d, i) => {
-                                    return <div key={"ljsdhl" + i} className="col-xxl-6 col-xl-6 col-lg-6 col-md-12 col-sm-12">
-                                        <CurrentClientProject teamImage={d.teamImage} logo={d.logo} logoBg={d.logoBg} title={d.title} sl={d.sl} />
-                                    </div>
-                                })
-                            }
-                        </div>
+        <PageHeader headerTitle={`${role} Profile`} />
+        <div className="row g-3">
+          <div className="col-xl-8 col-lg-12 col-md-12">
+            <ClientProfileCard designation="Web Developer" details="Employee Id : 00001" />
+            <h6 className="fw-bold py-3 mb-3">Current Work Project</h6>
+            <div className="teachercourse-list mb-3">
+              <div className="row g-3 gy-5 pt-3 row-deck">
+                {projects.length === 0 ? (
+                  <div className="text-center no-projects-found">
+                    <FaRegFrown size={64} className="mb-4 animate__animated animate__bounceIn" />
+                    <h3 className="text-secondary mb-3">No Project Found</h3>
+                    <p className="text-muted mb-4">It seems like you don't have any projects yet. Contact your Product Owners if there are any problems!</p>
+                  </div>
+                ) : (
+                  role === 'ProductOwners' ? (
+                    <DataTable
+                      title="Projects"
+                      columns={columns}
+                      data={projects}
+                      defaultSortField="title"
+                      pagination
+                      selectableRows={false}
+                      className="table myDataTable table-hover align-middle mb-0 d-row nowrap dataTable no-footer dtr-inline"
+                      highlightOnHover
+                    />
+                  ) : (
+                    <div className="row g-3 gy-1 py-1 row-deck">
+                      {projects.map((project) => (
+                        <CurrentClientProject
+                          key={project._id}
+                          Delivered={project.Delivered}
+                          ProjectType={project.projectCategory}
+                          noSprint={project.sprints?.length || 0}
+                          ProjectMembres={project.projectAssignedTeams?.numberOfMembers || 0}
+                          TeamName={project.projectAssignedTeams?.name || 'Unknown Team'}
+                          ProjectName={project.projectName}
+                          budget={project.budget}
+                          progres={project.progress}
+                          priority={project.priority}
+                          startDate={project.projectStartDate}
+                          endDate={project.projectEndDate}
+                        />
+                      ))}
                     </div>
-                    <div className="row g-3">
-                        {
-                            employeeInformationDetails.map((d, i) => {
-                                return <div key={"lkshnd" + i} className="col-xxl-6 col-xl-6 col-lg-6 col-md-12">
-                                    <PersonalInformations information={d.information} title={d.title}
-                                        onClickEdit={() => { setIsmodal(true); setModalData(d); }}
-                                    />
-                                </div>
-                            })
-                        }
-                    </div>
-
-                </div>
-                <div className="col-xl-4 col-lg-12 col-md-12">
-                    <CurrentTask />
-                    <ExperienceCard />
-                </div>
-
+                  )
+                )}
+              </div>
             </div>
-            <Modal centered show={ismodal} onHide={() => { setIsmodal(false) }}>
-                <Modal.Header closeButton>
-                    <Modal.Title className="fw-bold">{modalData.title}</Modal.Title>
-                </Modal.Header>
-                <Modal.Body>
-                    <div className="deadline-form">
-                        <form>
-                            <div className="row g-3 mb-3">
-                                {
-                                    modalData ?
-                                        modalData.information.map((d, i) => {
-                                            if (i < 2) {
-                                                return <div key={"kjsdfhj" + i} className="col">
-                                                    <label className="form-label">{d.title}</label>
-                                                    <input type="text" className="form-control" id="exampleFormControlInput877" value={d.value} />
-                                                </div>
-                                            }
-                                            return null;
-                                        })
-                                        : null
-                                }
-                            </div>
-                            <div className="row g-3 mb-3">
-                                {
-                                    modalData ?
-                                        modalData.information.map((d, i) => {
-                                            if (i > 1 && i < 4) {
-                                                return <div key={"kjsdfhj" + i} className="col">
-                                                    <label className="form-label">{d.title}</label>
-                                                    <input type="text" className="form-control" id="exampleFormControlInput877" value={d.value} />
-                                                </div>
-                                            }
-                                            return null;
-                                        })
-                                        : null
-                                }
-                            </div>
-                            <div className="row g-3 mb-3">
-                                {
-                                    modalData ?
-                                        modalData.information.map((d, i) => {
-                                            if (i > 3) {
-                                                return <div key={"kjsdfhj" + i} className="col">
-                                                    <label className="form-label">{d.title}</label>
-                                                    <input type="text" className="form-control" id="exampleFormControlInput877" value={d.value} />
-                                                </div>
-                                            }
-                                            return null;
-                                        })
-                                        : null
-                                }
-                            </div>
-                        </form>
-                    </div>
-                </Modal.Body>
-                <Modal.Footer>
-                    <button type="button" className="btn btn-secondary" onClick={() => { setIsmodal(false) }}>Done</button>
-                    <button type="button" className="btn btn-primary">Sent</button>
-                </Modal.Footer>
-            </Modal>
+          </div>
+          <div className="col-xl-4 col-lg-12 col-md-12">
+            <PersonalInformations />
+            <ExperienceCard />
+          </div>
         </div>
-    )
+      </div>
+    );
 }
-
 
 export default EmployeeProfile;

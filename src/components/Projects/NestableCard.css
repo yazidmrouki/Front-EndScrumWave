@@ -1,0 +1,284 @@
+.nestable-card {
+  background-color: #f7f7f7; /* Couleur d'arrière-plan homogène */
+  border: 1px solid #ddd;
+  border-radius: 10px; /* Rayon de bordure arrondi */
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  height: 340px; /* Hauteur fixe, ajustez selon vos besoins */
+  /* Si vous préférez une hauteur minimale pour permettre plus de contenu */
+  /* min-height: 300px; */
+   /* Pour gérer le débordement du contenu */
+}
+
+.bg-gradient {
+  background: linear-gradient(135deg, #ff7e5f, #feb47b);
+}
+
+
+.title {
+  font-size: 20px; /* Augmenter la taille de la police pour le titre */
+  font-weight: bold;
+  background: linear-gradient(135deg, #ff7e5f, #ffa55f); /* Dégradé de fond cool */
+  margin-bottom: 40px; /* Augmenter la marge en bas */
+  color: white; /* Couleur de texte blanche */
+  padding: 10px; /* Ajouter du padding pour espacer le texte du bord */
+  border-radius: 8px; /* Ajouter des bords arrondis */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ajouter une légère ombre portée */
+  text-align: center; /* Centrer le texte */
+  text-transform: uppercase; /* Transformer le texte en majuscules */
+}
+
+
+.ticket-info-text {
+  font-size: 24px;
+  color: #000000; /* Couleur de texte légèrement plus foncée */
+}
+
+.ticket-info.hovered {
+  text-decoration: underline;
+}
+
+.task-priority {
+  display: flex;
+  flex-direction: column; /* Pour placer le badge sous l'avatar */
+  align-items: center;
+}
+
+.large-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.badge {
+  font-size: 12px;
+  padding: 5px 10px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  margin-top: 5px;
+  background-color: #28a745; /* Couleur de fond */
+  color: #fff; /* Couleur du texte */
+}
+
+.bg-success {
+  background-color: #28a745;
+  color: #fff;
+}
+
+.bg-warning {
+  background-color: #ffc107;
+  color: #212529;
+}
+
+.bg-danger {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+.ticket-info-wrapper {
+  margin-top: 10px;
+  margin-right: 10px;
+  max-height: 100px; /* Ajustez selon vos besoins */
+  overflow-y: auto;
+  overflow-wrap: break-word;
+  flex-grow: 1;
+}
+
+.ticket-info {
+  white-space: nowrap; /* Empêche le texte de passer à la ligne suivante */
+  overflow: hidden; /* Masque le texte qui dépasse */
+  text-overflow: ellipsis; /* Ajoute des points de suspension à la fin du texte */
+  width: 80%; /* Assurez-vous que l'élément prenne toute la largeur disponible */
+  font-size: 12px; /* Taille de police plus petite */
+}
+
+.custom-dropdown {
+  position: relative;
+}
+
+.custom-dropdown-menu {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  min-width: 150px;
+  margin-top: -1px;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+
+  object-fit: cover;
+}
+
+.small-text {
+  font-size: 12px;
+  color: #888;
+}
+
+.ticket-body {
+  display: flex;
+  align-items: center;
+  margin-top: -25px; /* Ajustez cette valeur selon vos besoins */
+}
+/* Ajuster la position du dropdown */
+.ticket-dropdown {
+    margin-left: 10px; /* Ajouter une marge à gauche pour positionner le dropdown */
+}
+
+.bug-screenshot {
+    position: relative; /* Pour positionner le bouton "Consulter" */
+    margin-top: 50;
+  }
+  
+  .bug-screenshot img {
+    max-width: 100%;
+  
+    display: block; /* Rendre l'image un élément de bloc pour le dimensionnement */
+  }
+  
+  .overlay {
+    position: absolute;
+    top:-5;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 87%;
+    width: 100%;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  
+  .bug-screenshot:hover .overlay {
+    opacity: 1;
+  }
+  
+  .text {
+    color: white;
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+  }
+  
+  .bug-screenshot:hover .overlay {
+    opacity: 1;
+  }
+  
+  .consulter {
+    position: absolute;
+ 
+    max-width: 80%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 20px;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  
+  .bug-screenshot:hover .consulter {
+    opacity: 1;
+  }
+
+/**/
+
+
+
+
+.project-info, .sprint-info {
+  margin-top: 10px;
+}
+
+.info-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding:6px 10px;
+  margin-bottom: 6px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.info-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.info-icon {
+  font-size: 24px;
+  margin-right: 15px;
+  transition: color 0.3s ease;
+}
+
+.info-label, .info-value {
+  font-size: 16px;
+  margin-right: 10px;
+}
+
+.text-danger {
+  color: #dc3545; /* Couleur rouge pour danger */
+}
+
+.text-success {
+  color: #28a745; /* Couleur verte pour succès */
+}
+
+
+.sprint-card {
+  border: 1px solid #e3e3e3;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.sprint-card .card-header {
+  background-color: #6c757d;
+  color: #fff;
+}
+
+.sprint-card .card-body {
+  padding: 10px;
+}
+
+@media (max-width: 767px) {
+  .info-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .info-value {
+    margin-left: 0;
+  }
+}
+.scrollable-col {
+  max-height: 400px; /* ajustez la hauteur maximale selon vos besoins */
+  overflow-y: auto; /* active le défilement vertical lorsque le contenu dépasse la hauteur maximale */
+}
+.dropdown-arrow {
+  position: absolute;
+  top: 50%;
+  right: 20px; /* Ajustez cette valeur selon vos besoins */
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 5px 5px 0 5px;
+  border-color: #ffffff transparent transparent transparent;
+  z-index: 1;
+}

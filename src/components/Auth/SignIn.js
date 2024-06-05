@@ -10,7 +10,7 @@ function SignIn (){
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [role, setRole] = useState('Devellopeurs');
-
+    const [loading, setLoading] = useState(false);
     useEffect(() => {
         const timeout = setTimeout(() => {
             toast.dismiss();
@@ -21,17 +21,28 @@ function SignIn (){
 
     const handleSubmit = async (event) => {
         event.preventDefault();
+        setLoading(true); // Activer le chargement
 
         try {
             // Envoyer une requête POST au backend avec les informations d'identification
             const response = await axios.post(`http://localhost:3000/api/${role}/signin`, {
                 email: email,
-                password: password
+                password: password,
+               
             });
+            
+            localStorage.setItem('Assignedteam', response.data.Assignedteam);
 
             // Stocker le token renvoyé par le backend dans le localStorage
             localStorage.setItem('token', response.data.token);
+            localStorage.setItem('id', response.data.id);
             localStorage.setItem('role', role);
+          
+            localStorage.setItem('name', response.data.name);
+          
+            console.log("response.data.Assignedteam"+response.data.Assignedteam)
+
+        
             localStorage.setItem('email', email);
             toast.success('Connexion réussie !');
             // Rediriger l'utilisateur vers la page appropriée après la connexion
@@ -39,13 +50,20 @@ function SignIn (){
 
             // Rediriger l'utilisateur vers la page appropriée après un délai de 2 secondes
             setTimeout(() => {
-                window.location.href = `${process.env.PUBLIC_URL}/hr-dashboard`;
-            }, 800);
+                window.location.href = `${process.env.PUBLIC_URL}/members-profile`;
+            }, 1500);
         } catch (error) {
             toast.error(error.response.data.message); // Afficher l'erreur avec toast.error
+        } finally {
+            // Désactiver le chargement après 1500ms
+            setTimeout(() => {
+                setLoading(false);
+            }, 1500);
         }
+  
     };
-
+ 
+    
     const handleSignUpClick = () => {
         // Rediriger l'utilisateur vers la page d'inscription
         window.location.href = `${process.env.PUBLIC_URL}/sign-up`;
@@ -57,14 +75,28 @@ function SignIn (){
     };
 
     return(
+
+        
         <div className="main p-2 py-3 p-xl-5 ">
-            <ToastContainer position="top-right" autoClose={5000} hideProgressBar newestOnTop closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover />
+              {loading ? ( // Afficher le spinner si loading est true
+              <div className="d-flex justify-content-center align-items-center" style={{  height: "100vh", width: "100vw" }}>
+  <div class="spinner-grow bg-primary" style={{ width: "10rem", height: "10rem" }} role="status">
+  <span class="sr-only">Connexion...</span>
+</div>
+
+    <p className="h3 mt-3">Connexion...</p>
+</div>
+
+                                ) : (
+           
             <div className="body d-flex p-0 p-xl-5">
+                 <ToastContainer position="top-right" autoClose={5000} hideProgressBar newestOnTop closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover />
                 <div className="container-xxl">
                     <div className="row g-0">
                         <LeftSide />
                         <div className="col-lg-6 d-flex justify-content-center align-items-center border-0 rounded-lg auth-h100">
                             <div className="w-100 p-3 p-md-5 card border-0 bg-dark text-light" style={{maxWidth: "32rem"}}>
+                          
                                 <form className="row g-1 p-3 p-md-4" onSubmit={handleSubmit}>
                                     <div className="col-12 text-center mb-1 mb-lg-5">
                                         <h1>Sign in</h1>
@@ -121,11 +153,13 @@ function SignIn (){
                                         <span className="text-muted">Don't have an account yet? <span className="text-secondary" onClick={handleSignUpClick}>Sign up here</span></span>
                                     </div>
                                 </form>
-                            </div>
+                                </div>
                         </div>
                     </div>
                 </div>
             </div>
+                                     )}
+             
         </div>
     );
 }

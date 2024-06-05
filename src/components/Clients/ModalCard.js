@@ -7,7 +7,7 @@ const ModalCard = ({ updateAvatar, closeModal }) => {
   return (
     <Modal show={true} onHide={closeModal}>
       <Modal.Header closeButton>
-        <Modal.Title>Modifier le profil</Modal.Title>
+        <Modal.Title>Modifeir l'Image</Modal.Title>
       </Modal.Header>
       <Modal.Body>
         <div
@@ -36,9 +36,7 @@ const ModalCard = ({ updateAvatar, closeModal }) => {
         <Button variant="secondary" onClick={closeModal}>
           Fermer
         </Button>
-        <Button variant="primary" onClick={updateAvatar}>
-          Enregistrer
-        </Button>
+       
       </Modal.Footer>
     </Modal>
   );
